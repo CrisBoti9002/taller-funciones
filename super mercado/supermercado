@@ -1,0 +1,73 @@
+def agregar_producto(carrito, nombre, precio):
+    carrito.append((nombre, precio))
+
+
+# Función para calcular el total de la compra
+def calcular_total(carrito):
+    total = 0
+    for nombre, precio in carrito:
+        total += precio
+    return total
+
+
+# Función para mostrar el carrito
+def mostrar_carrito(carrito):
+    print("Productos en el carrito:")
+    for nombre, precio in carrito:
+        print(nombre, "-", precio)
+
+
+# Función para aplicar descuento
+def aplicar_descuento(total, descuento=0):
+    return total - (total * descuento / 100)
+
+
+# Carrito (lista de tuplas)
+carrito = []
+
+# Agregar productos
+agregar_producto(carrito, "Arroz", 3000)
+agregar_producto(carrito, "Leche", 2500)
+agregar_producto(carrito, "Pan", 1500)
+
+# Mostrar carrito
+mostrar_carrito(carrito)
+
+# Calcular total
+total = calcular_total(carrito)
+print("Total sin descuento:", total)
+
+# Aplicar descuento (ej: 10%)
+total_final = aplicar_descuento(total, 10)
+print("Total con descuento:", total_final)
+
+
+# Lista del carrito
+carrito = []
+
+# Funciones
+def agregar_producto(nombre, precio):
+    carrito.append((nombre, precio))
+    print("Producto agregado")
+
+def ver_carrito():
+    if len(carrito) == 0:
+        print("El carrito está vacío")
+    else:
+        print("\n--- Carrito ---")
+        for nombre, precio in carrito:
+            print(nombre, "-", precio)
+
+def calcular_total():
+    total = 0
+    for nombre, precio in carrito:
+        total += precio
+    print("Total a pagar:", total)
+
+def eliminar_producto(nombre):
+    for producto in carrito:
+        if producto[0] == nombre:
+            carrito.remove(producto)
+            print("Producto eliminado")
+            return
+    print("Producto no encontrado")

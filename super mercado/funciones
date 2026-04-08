@@ -1,0 +1,38 @@
+ # Función para agregar producto al carrito
+from funciones import calcular_total 
+from funciones import agregar_producto
+from funciones import mostrar_carrito
+from funciones import aplicar_descuento
+
+# Menú interactivo
+while True:
+    print("\n--- SUPERMERCADO ---")
+    print("1. Agregar producto")
+    print("2. Ver carrito")
+    print("3. Calcular total")
+    print("4. Eliminar producto")
+    print("5. Salir")
+
+    opcion = input("Seleccione una opción: ")
+
+    if opcion == "1":
+        nombre = input("Nombre del producto: ")
+        precio = float(input("Precio: "))
+        agregar_producto(nombre, precio)
+
+    elif opcion == "2":
+        ver_carrito()
+
+    elif opcion == "3":
+        calcular_total()
+
+    elif opcion == "4":
+        nombre = input("Producto a eliminar: ")
+        eliminar_producto(nombre)
+
+    elif opcion == "5":
+        print("Saliendo del programa...")
+        break
+
+    else:
+        print("Opción inválida")
